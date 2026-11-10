@@ -1,0 +1,8 @@
+arduino-ide-bin
+chatgpt-desktop
+claude-desktop
+google-chrome
+visual-studio-code-bin
+whatsapp-linux-desktop-bin
+yay-bin
+yay-bin-debug

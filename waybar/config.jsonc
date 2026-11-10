@@ -1,0 +1,77 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 34,
+
+  "modules-left":   ["hyprland/workspaces"],
+  "modules-center": ["wlr/taskbar", "clock", "custom/weather"],
+  "modules-right":  ["tray", "hyprland/language", "pulseaudio", "network", "bluetooth", "battery", "custom/power"],
+
+  "hyprland/workspaces": {
+    "format": "{name}"
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "custom/weather": {
+    "exec": "curl -sf 'wttr.in/Baku?format=%c%t&m' || echo '--'",
+    "interval": 900,
+    "format": "{}"
+  },
+
+  "hyprland/language": {
+    "format": "󰌌 {short}",
+    "on-click": "hyprctl switchxkblayout all next"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+    "on-click": "pavucontrol"
+  },
+
+  "network": {
+    "format-wifi": "󰖩",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format": "{essid} {signalStrength}%",
+    "on-click": "python3 ~/.config/waybar/popup.py wifi"
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-off": "󰂲",
+    "format-connected": "󰂱",
+    "on-click": "python3 ~/.config/waybar/popup.py bluetooth"
+  },
+
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon} {capacity}%",
+    "format-charging": "\uf0e7 {capacity}%",
+    "format-plugged": "\uf1e6 {capacity}%",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "python3 ~/.config/waybar/popup.py power"
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}
